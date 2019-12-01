@@ -1,0 +1,22 @@
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+#left-col {
+  height: 100%;
+  float: left;
+  width: 50%;
+}
+
+#right-col {
+  width: 50%;
+  height: 100%;
+  float: right;
+}
