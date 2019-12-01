@@ -4,7 +4,7 @@ class ItemsList extends React.Component {
 
     render() {
         return (
-            <div id="left-col" >
+            <div id="left-col">
                 Pokemons List:
           </div>
         );

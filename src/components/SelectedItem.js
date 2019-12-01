@@ -3,7 +3,7 @@ import React from 'react';
 class SelectedItem extends React.Component {
 
     render() {
-        return ( 
+        return (
             <div id="right-col">
                 Selected Pokemon:
         </div>

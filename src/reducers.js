@@ -7,7 +7,7 @@ import {
     RECEIVE_ITEMS
 } from './actions';
 
-function selectedItem(state, action) {
+function selectedItem(state = {}, action) {
     switch (action.type) {
         case SELECT_ITEM:
             return action.item;

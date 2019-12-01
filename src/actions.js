@@ -1,20 +1,20 @@
 import fetch from 'cross-fetch';
 
 export const SELECT_ITEM = 'SELECT_ITEM';
-export const INVALIDATE_ITEM = 'INVALIDATE_ITEM';
 export const REQUEST_ITEMS = 'REQUEST_ITEMS';
 export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
-
-export function selectItem(item) {
-    return {
-        type: SELECT_ITEM,
-        item
-    }
-}
+export const INVALIDATE_ITEM = 'INVALIDATE_ITEM';
 
 export function invalidateItem(item) {
     return {
         type: INVALIDATE_ITEM,
+        item
+    }
+}
+
+export function selectItem(item) {
+    return {
+        type: SELECT_ITEM,
         item
     }
 }
@@ -47,15 +47,5 @@ export function fetchItems(item) {
             .then(json =>
                 dispatch(receiveItems(item, json))
             )
-    }
-}
-
-export function fetchItemsIfNeeded(item) {
-    return (dispatch, getState) => {
-        if (shouldFetchItems(getState(), item)) {
-            return dispatch(fetchItems(item))
-        } else {
-            return Promise.resolve()
-        }
     }
 }
