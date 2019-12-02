@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render with given state from Redux store 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    Master-Detail Exercise
+  </header>
+  <div
+    id="left-col"
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <label
+      className="list-title"
+    >
+      Pokemons List 
+    </label>
+    <button
+      className="refresh-btn"
+      onClick={[Function]}
+    >
+      Refresh
+    </button>
+    <h2>
+      Empty.
+    </h2>
+  </div>
+  <div
+    id="right-col"
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <label
+      className="list-title"
+    >
+       Selected Pokemon:
+    </label>
+  </div>
+</div>
+`;

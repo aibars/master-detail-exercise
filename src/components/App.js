@@ -20,8 +20,7 @@ class App extends React.Component {
     dispatch(fetchItems())
   }
 
-  handleRefreshClick(e) {
-    e.preventDefault();
+  handleRefreshClick() {
     const { dispatch } = this.props;
     dispatch(invalidateItem());
     dispatch(fetchItems());
@@ -59,7 +58,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  selectedItem: PropTypes.string.isRequired,
+  selectedItem: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,

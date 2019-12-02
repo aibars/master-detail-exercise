@@ -6,7 +6,7 @@ Once an element is clicked, the information is expanded in the card on the right
 
 Environment setting:
 
-Before running the app, a `.env.local` has to be created. In it, the following keys needs to be added:
+Before running the app, a `.env.local` file has to be created. In it, the following keys needs to be added:
 
 ```
 REACT_APP_API_URL=https://pokeapi.co/api/v2/pokemon?limit={LIMIT}
