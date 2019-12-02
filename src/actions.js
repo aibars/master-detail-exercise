@@ -4,6 +4,7 @@ export const REQUEST_ITEMS = 'REQUEST_ITEMS';
 export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
 export const REQUEST_ITEM = 'REQUEST_ITEM';
 export const RECEIVE_ITEM = 'RECEIVE_ITEM';
+export const INVALIDATE_ITEM = 'INVALIDATE_ITEM';
 
 export function selectItem(item) {
     return function (dispatch) {
@@ -17,6 +18,12 @@ export function selectItem(item) {
             .then(json =>
                 dispatch(receiveItem(json))
             );
+    }
+}
+
+export function invalidateItem() {
+    return {
+        type: INVALIDATE_ITEM
     }
 }
 

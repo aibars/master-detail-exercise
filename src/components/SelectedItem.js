@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/SelectedItem.css';
 import '../styles/App.css';
 
-export default function SelectedItem(props) {
+function SelectedItem(props) {
     const { item, isFetching } = props.selectedItem;
 
     return (
@@ -13,7 +13,6 @@ export default function SelectedItem(props) {
                 (<div className="beast-info">
                     <br />
                     <span className="selected-name">Beast Name: {item.species.name[0].toUpperCase() + item.species.name.slice(1)}</span>
-                    <br />
                     <img width="150" height="150" src={item.sprites.front_default} alt={item.species.name} />
                     <br />
                     Abilities:
@@ -32,3 +31,5 @@ export default function SelectedItem(props) {
         </div>
     );
 }
+
+export default React.memo(SelectedItem);

@@ -5,7 +5,7 @@ import SelectedItem from './SelectedItem';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  fetchItems,
+  fetchItems, invalidateItem,
 } from '../actions';
 
 class App extends React.Component {
@@ -22,8 +22,8 @@ class App extends React.Component {
 
   handleRefreshClick(e) {
     e.preventDefault();
-
     const { dispatch } = this.props;
+    dispatch(invalidateItem());
     dispatch(fetchItems());
   }
 

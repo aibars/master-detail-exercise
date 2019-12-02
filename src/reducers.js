@@ -4,21 +4,28 @@ import {
     RECEIVE_ITEM,
     REQUEST_ITEM,
     REQUEST_ITEMS,
-    RECEIVE_ITEMS
+    RECEIVE_ITEMS,
+    INVALIDATE_ITEM
 } from './actions';
 
-function selectedItem(state = {}, action) {
+function selectedItem(state = {
+    isFetching: false,
+    item: null
+}, action) {
     switch (action.type) {
-        case REQUEST_ITEM:
-            return {
-                isFetching: true,
+        case INVALIDATE_ITEM:
+            return Object.assign({}, state, {
                 item: null
-            };
+            });
+        case REQUEST_ITEM:
+            return Object.assign({}, state, {
+                isFetching: true
+            });
         case RECEIVE_ITEM:
-            return {
-                isFetching: false,
-                item: action.item
-            };
+            return Object.assign({}, state, {
+                item: action.item,
+                isFetching: false
+            });
         default:
             return state;
     }
