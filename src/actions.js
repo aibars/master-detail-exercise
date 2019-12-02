@@ -58,7 +58,10 @@ export function fetchItems() {
     return function (dispatch) {
         dispatch(requestItems());
 
-        return fetch(`https://pokeapi.co/api/v2/pokemon?limit=20&order=1`)
+        //In this case, the API url is public and constant. However, I assumed that the url changes across the different
+        //environments. 
+        var url = process.env.REACT_APP_API_URL.replace('{LIMIT}', process.env.REACT_APP_LIST_SIZE);
+        return fetch(url)
             .then(
                 response => response.json(),
                 error => console.log('An error occurred.', error)
