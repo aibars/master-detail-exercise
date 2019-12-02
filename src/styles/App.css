@@ -1,7 +1,6 @@
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(15px + 2vmin);
   color: white;
 }
 
@@ -13,10 +12,25 @@
   height: 100%;
   float: left;
   width: 50%;
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 #right-col {
   width: 50%;
   height: 100%;
   float: right;
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.update-info {
+  width: 50%;
+}
+
+.refresh-btn {
+  float: right;
+  margin-right: 20px;
 }

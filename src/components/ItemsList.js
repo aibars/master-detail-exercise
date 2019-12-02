@@ -1,14 +1,15 @@
 import React from 'react';
+import '../styles/ItemsList.css';
 
-class ItemsList extends React.Component {
+export default function ItemsList(props) {
 
-    render() {
-        return (
-            <div id="left-col">
-                Pokemons List:
-          </div>
-        );
-    }
+    return (
+        <div>
+            <ul>
+                {props.items.map((item, i) => (
+                    <li key={i}>{item.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
 }
-
-export default ItemsList;

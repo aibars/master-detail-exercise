@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 
 import {
     SELECT_ITEM,
-    INVALIDATE_ITEM,
     REQUEST_ITEMS,
     RECEIVE_ITEMS
 } from './actions';
@@ -17,26 +16,22 @@ function selectedItem(state = {}, action) {
 }
 
 
-function items(
+function pokemons(
     state = {
         isFetching: false,
-        didInvalidate: false,
         items: []
     },
     action
 ) {
     switch (action.type) {
-        case INVALIDATE_ITEM:
-            return Object.assign({}, state, { didInvalidate: true });
         case REQUEST_ITEMS:
             return Object.assign({}, state, {
-                isFetching: true,
-                didInvalidate: false
+                items: [],
+                isFetching: true
             });
         case RECEIVE_ITEMS:
             return Object.assign({}, state, {
                 isFetching: false,
-                didInvalidate: false,
                 items: action.items,
                 lastUpdated: action.receivedAt
             });
@@ -46,7 +41,7 @@ function items(
 }
 
 const rootReducer = combineReducers({
-    items,
+    pokemons,
     selectedItem
 })
 

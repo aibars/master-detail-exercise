@@ -1,0 +1,8 @@
+li:hover {
+    color: blue;
+}
+
+ul {
+    list-style-image: url('./PokeBall.svg');
+    font-size: 30px;
+  }
