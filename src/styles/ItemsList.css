@@ -1,4 +1,4 @@
-li:hover {
+.pokeball:hover {
     color: blue;
     cursor: pointer;
 }

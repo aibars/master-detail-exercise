@@ -12,3 +12,19 @@
 .abilities-list {
     list-style-type: none;
 }
+
+.img-container {
+    text-align: center;
+}
+
+.ability {
+    
+    height: 40px;
+    padding-left: 44px;
+    padding-top: 3px;
+}
+
+.hidden {
+    filter: invert(100%);
+    vertical-align: middle;
+}
