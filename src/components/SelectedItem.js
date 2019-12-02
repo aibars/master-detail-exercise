@@ -11,16 +11,23 @@ export default function SelectedItem(props) {
             {isFetching && <h2>Loading...</h2>}
             {item &&
                 (<div className="beast-info">
+                    <br />
                     <span className="selected-name">Beast Name: {item.species.name[0].toUpperCase() + item.species.name.slice(1)}</span>
-                    <br/>
+                    <br />
                     <img width="150" height="150" src={item.sprites.front_default} alt={item.species.name} />
-                    <br/>
+                    <br />
                     Abilities:
-                    {/* <ul>
-                    {item.abilities.map((ability, i) => (
-                        <li>{ability}</li>
-                    ))}
-                    </ul> */}
+                    <ul className="abilities-list">
+                        {item.abilities.map((elem, i) => (
+                            <li className="ability">{elem.ability.name}</li>
+                        ))}
+                    </ul>
+                    Stats:
+                    <ul className="abilities-list">
+                        {item.stats.map((elem, i) => (
+                            <li className="ability">{elem.stat.name}</li>
+                        ))}
+                    </ul>
                 </div>)}
         </div>
     );

@@ -1,8 +1,14 @@
 .selected-name {
     padding-top: 15px;
     text-align: center;
+    display: block;
+    font-size: calc(20px + 2vmin);
 }
 
 .beast-info {
     padding-left: 20px;
+}
+
+.abilities-list {
+    list-style-type: none;
 }

@@ -1,5 +1,6 @@
 li:hover {
     color: blue;
+    cursor: pointer;
 }
 
 .items-list {

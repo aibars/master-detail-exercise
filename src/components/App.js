@@ -37,7 +37,7 @@ class App extends React.Component {
         <div id="left-col" style={{ opacity: isFetching ? 0.5 : 1 }}>
           <label className="list-title">Pokemons List {lastUpdated && (
             <span className="update-info">
-              (Last updated at {new Date(lastUpdated).toLocaleTimeString()}.{' '})
+              (Last updated at {new Date(lastUpdated).toLocaleTimeString()})
               </span>
           )}
           </label>
