@@ -2,7 +2,15 @@ li:hover {
     color: blue;
 }
 
-ul {
-    list-style-image: url('./PokeBall.svg');
-    font-size: 30px;
-  }
+.items-list {
+    font-size: calc(10px + 2vmin);
+    margin-left: 20px;
+    list-style-type: none;
+}
+
+.pokeball {
+    background: url('./pokeball.ico') no-repeat left center;
+    height: 40px;
+    padding-left: 44px;
+    padding-top: 3px;
+}

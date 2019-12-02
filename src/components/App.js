@@ -24,29 +24,26 @@ class App extends React.Component {
     e.preventDefault();
 
     const { dispatch } = this.props;
-    //dispatch(invalidateItems());
     dispatch(fetchItems());
   }
 
   render() {
     const { selectedItem, items, isFetching, lastUpdated } = this.props;
     return (
-      <div className="App" style={{ opacity: isFetching ? 0.5 : 1 }}>
+      <div className="App" >
         <header className="App-header">
           Master-Detail Exercise
         </header>
-        <div id="left-col">
-          <label>Pokemons List:</label> {!isFetching && (
+        <div id="left-col" style={{ opacity: isFetching ? 0.5 : 1 }}>
+          <label className="list-title">Pokemons List {lastUpdated && (
+            <span className="update-info">
+              (Last updated at {new Date(lastUpdated).toLocaleTimeString()}.{' '})
+              </span>
+          )}
+          </label>
+          {!isFetching && (
             <button className="refresh-btn" onClick={this.handleRefreshClick}>Refresh</button>
           )}
-          <br />
-          <span className="update-info">
-            {lastUpdated && (
-              <span>
-                Last updated at {new Date(lastUpdated).toLocaleTimeString()}.{' '}
-              </span>
-            )}
-          </span>
           {isFetching && items.length === 0 && <h2>Loading...</h2>}
           {!isFetching && items.length === 0 && <h2>Empty.</h2>}
           {items.length > 0 &&
@@ -55,7 +52,7 @@ class App extends React.Component {
             </div>
           }
         </div>
-        {selectedItem && <SelectedItem />}
+        <SelectedItem selectedItem={selectedItem} />
       </div >
     );
   }

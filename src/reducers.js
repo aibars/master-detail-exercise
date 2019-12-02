@@ -1,15 +1,24 @@
 import { combineReducers } from 'redux';
 
 import {
-    SELECT_ITEM,
+    RECEIVE_ITEM,
+    REQUEST_ITEM,
     REQUEST_ITEMS,
     RECEIVE_ITEMS
 } from './actions';
 
 function selectedItem(state = {}, action) {
     switch (action.type) {
-        case SELECT_ITEM:
-            return action.item;
+        case REQUEST_ITEM:
+            return {
+                isFetching: true,
+                item: null
+            };
+        case RECEIVE_ITEM:
+            return {
+                isFetching: false,
+                item: action.item
+            };
         default:
             return state;
     }

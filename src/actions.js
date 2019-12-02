@@ -1,20 +1,35 @@
 import fetch from 'cross-fetch';
 
-export const SELECT_ITEM = 'SELECT_ITEM';
 export const REQUEST_ITEMS = 'REQUEST_ITEMS';
 export const RECEIVE_ITEMS = 'RECEIVE_ITEMS';
-export const INVALIDATE_ITEMS = 'INVALIDATE_ITEMS';
+export const REQUEST_ITEM = 'REQUEST_ITEM';
+export const RECEIVE_ITEM = 'RECEIVE_ITEM';
 
-export function invalidateItems() {
-    return {
-        type: INVALIDATE_ITEMS
+export function selectItem(item) {
+    return function (dispatch) {
+        dispatch(requestItem());
+
+        return fetch(item.url)
+            .then(
+                response => response.json(),
+                error => console.log('An error occurred.', error)
+            )
+            .then(json =>
+                dispatch(receiveItem(json))
+            );
     }
 }
 
-export function selectItem(item) {
+function requestItem() {
     return {
-        type: SELECT_ITEM,
-        item
+        type: REQUEST_ITEM
+    }
+}
+
+function receiveItem(json) {
+    return {
+        type: RECEIVE_ITEM,
+        item: json
     }
 }
 
@@ -43,6 +58,6 @@ export function fetchItems() {
             )
             .then(json =>
                 dispatch(receiveItems(json))
-            )
+            );
     }
 }
