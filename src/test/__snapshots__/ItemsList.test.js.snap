@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemsList should render with given state from Redux store 1`] = `
+<div>
+  <ul
+    className="items-list"
+  >
+    <li
+      className="pokeball"
+      onClick={[Function]}
+    >
+      1
+    </li>
+    <li
+      className="pokeball"
+      onClick={[Function]}
+    >
+      1
+    </li>
+  </ul>
+</div>
+`;

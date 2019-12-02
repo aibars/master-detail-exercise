@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/SelectedItem.css';
 import '../styles/App.css';
 
-function SelectedItem(props) {
+export default function SelectedItem(props) {
     const { item, isFetching } = props.selectedItem;
 
     return (
@@ -18,18 +18,16 @@ function SelectedItem(props) {
                     Abilities:
                     <ul className="abilities-list">
                         {item.abilities.map((elem, i) => (
-                            <li className="ability">{elem.ability.name}</li>
+                            <li key={i} className="ability">{elem.ability.name}</li>
                         ))}
                     </ul>
                     Stats:
                     <ul className="abilities-list">
                         {item.stats.map((elem, i) => (
-                            <li className="ability">{elem.stat.name}</li>
+                            <li key={i} className="ability">{elem.stat.name}</li>
                         ))}
                     </ul>
                 </div>)}
         </div>
     );
 }
-
-export default React.memo(SelectedItem);
