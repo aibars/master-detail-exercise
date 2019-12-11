@@ -2,11 +2,10 @@ import React from 'react';
 import '../styles/SelectedItem.css';
 import '../styles/App.css';
 
-export default function SelectedItem(props) {
-    const { item, isFetching } = props.selectedItem;
-
-    return (
-        <div id="right-col" style={{ opacity: isFetching ? 0.5 : 1 }}>
+class SelectedItem extends React.PureComponent {
+    render() {
+        const { item, isFetching } = this.props.selectedItem;
+        return (<div id="right-col" style={{ opacity: isFetching ? 0.5 : 1 }}>
             <label className="list-title"> Selected Pokemon:</label>
             {isFetching && <h2>Loading...</h2>}
             {item &&
@@ -19,7 +18,7 @@ export default function SelectedItem(props) {
                     </div>
                     <br />
                     Abilities:
-                    <ul className="abilities-list">
+                <ul className="abilities-list">
                         {item.abilities.map((elem, i) => (
                             <li key={i} className="ability">{elem.ability.name} {elem.is_hidden ?
                                 <img className="hidden" height="25" width="25" src={require('../styles/hidden.png')} alt=""></img> : ''}
@@ -27,12 +26,14 @@ export default function SelectedItem(props) {
                         ))}
                     </ul>
                     Stats:
-                    <ul className="abilities-list">
+                <ul className="abilities-list">
                         {item.stats.map((elem, i) => (
                             <li key={i} className="ability">{elem.stat.name}: {elem.base_stat}</li>
                         ))}
                     </ul>
                 </div>)}
-        </div>
-    );
+        </div>);
+    }
 }
+
+export default SelectedItem;

@@ -21,8 +21,10 @@ class App extends React.Component {
   }
 
   handleRefreshClick() {
-    const { dispatch } = this.props;
-    dispatch(invalidateItem());
+    const { dispatch, selectedItem } = this.props;
+
+    if(selectedItem.item) dispatch(invalidateItem());
+
     dispatch(fetchItems());
   }
 
