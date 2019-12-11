@@ -37,7 +37,47 @@ describe('App', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('should dispatch an action on refresh click', () => {
+  it('should dispatch an action on refresh click with null item', () => {
+    renderer.act(() => {
+      component.root.findByType('button').props.onClick();
+    });
+
+    expect(store.dispatch).toHaveBeenCalledTimes(2);
+  });
+
+  it('should dispatch an action on refresh click with selected item', () => {
+    store = mockStore({
+      pokemons: {
+        items: [],
+        isFetching: false,
+        lastUpdate: Date.now()
+      },
+      selectedItem: {
+        item: {
+          species: {
+            name: [
+              "something"
+            ]
+          },
+          sprites: {
+            front_default: 'url1',
+            back_default: 'url1',
+          },
+          abilities: [],
+          stats: []
+        },
+        isFetching: false
+      },
+    });
+
+    store.dispatch = jest.fn();
+
+    component = renderer.create(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
     renderer.act(() => {
       component.root.findByType('button').props.onClick();
     });
