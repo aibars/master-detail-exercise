@@ -31,4 +31,17 @@ describe('SelectedItem', () => {
 
         expect(component).toMatchSnapshot();
     });
-});
+
+    it('shows loading while fetching', () => {
+        const component = shallow((
+            <SelectedItem
+                selectedItem={{
+                    item: null,
+                    isFetching: true
+                }}
+            />
+        ));
+                
+        expect(component.children().find('h2').text()).toEqual('Loading...');
+    });
+}); 
