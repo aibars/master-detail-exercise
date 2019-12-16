@@ -49,7 +49,7 @@ describe('ItemsList', () => {
 
     it('should dispatch an action on clicking on a list element', () => {
         renderer.act(() => {
-            component.root. findAllByType('li')[0].props.onClick();
+            component.root.findAllByType('li')[0].props.onClick();
         });
         expect(store.dispatch).toHaveBeenCalledTimes(1);
     });
